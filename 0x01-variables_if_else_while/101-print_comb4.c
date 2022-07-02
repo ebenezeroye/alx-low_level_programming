@@ -1,30 +1,35 @@
 #include <stdio.h>
-
 /**
-* main - Print combinations of two digit numbers
-*
-* Return: Always 0 (Success)
-*/
+ * main - program that prints all possible different combinations of 3 digits.
+ * Return: 0
+ */
 int main(void)
 {
-  int tens;
-  int ones;
+	int c = 0;
+	int f_d;
+	int m_d;
+	int l_d;
 
-  for (tens = 0; tens <= 9; tens++)
-    {
-      for (ones = tens + 1; ones <= 9; ones++)
+	while (c <= 999)
 	{
-	  putchar(tens + '0');
-	  putchar(ones + '0');
+		f_d = (c / 100 + '0');
+		m_d = (c / 10 % 10 + '0');
+		l_d = (c % 10 + '0');
 
-	  if (tens < 8)
-	    {
-	      putchar(',');
-	      putchar(' ');
-	    }
+		if ((f_d < m_d) && (m_d < l_d))
+		{
+			putchar(f_d);
+			putchar(m_d);
+			putchar(l_d);
+
+			if (c != 789)
+			{
+				putchar(',');
+				putchar(' ');
+			}
+		}
+		c++;
 	}
-    }
-  putchar('\n');
-
-  return (0);
+putchar('\n');
+return (0);
 }
