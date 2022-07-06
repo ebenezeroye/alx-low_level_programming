@@ -1,15 +1,12 @@
-#include <stdio.h>
+#include "main.h"
 
+/**
+ * main - check the code for Holberton School students.
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
-	char ch = 'a';
-	printf("print_alphabet;\n");
-
-		while (ch <= 'z')
-		{
-			printf("%c", ch);
-			ch++;
-		}
-	printf("\n");
+	print_alphabet();
 	return (0);
 }
