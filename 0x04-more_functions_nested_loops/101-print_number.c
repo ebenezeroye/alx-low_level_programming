@@ -1,31 +1,35 @@
-#include <stdio.h>
+#include "main.h"
+
 /**
- * main - largest prime factor of 612852475143.
- * Return: 0
- */
-int main(void)
+* print_number - prints # using _putchar function
+* @n: the integer to print
+*
+* Return: void
+*/
+void print_number(int n)
 {
-	long int x, i, pf;
+	int copy, nth, size = 1, ones = n % 10;
 
-	pf = -1;
-	x = 612852475143;
-
-	while (x % 2 == 0)
+	n /= 10;
+	copy = n;
+	if (ones < 0)
 	{
-		pf = 2;
-		x = x / 2;
+		ones *= -1, copy *= -1, n *= -1;
+		_putchar('-');
 	}
-	for (i = 3; i <= x / 2; i = i + 2)
+	if (copy > 0)
 	{
-		while (x % i == 0)
+		while (copy / 10 != 0)
 		{
-			pf = 1;
-			x = x / i;
+			copy /= 10, size *= 10;
+		}
+		while (size > 0)
+		{
+			nth = n / size;
+			_putchar('0' + nth);
+			n -= nth * size;
+			size /= 10;
 		}
 	}
-	if (x > 2)
-		pf = x;
-
-	printf("%ld\n", pf);
-	return (0);
+	_putchar('0' + ones);
 }
